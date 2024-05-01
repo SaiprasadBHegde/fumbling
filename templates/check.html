@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Speech Fumbling Detection</title>
+    <link rel="stylesheet" href="../static/css/check.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Speech Fumbling Detection</h1>
+    </header>
+
+    <div class="content">
+      <section class="upload-section">
+        <h2>Audio Upload Interface</h2>
+        <div class="upload-container">
+          <label for="file-upload" class="upload-label">Upload Audio:</label>
+          <input type="file" id="file-upload" accept="audio/*" />
+        </div>
+        <div class="audio-preview-container">
+          <audio controls id="audio-preview"></audio>
+        </div>
+        <div class="predict-button-container">
+          <button id="predict-button" class="button">Predict</button>
+        </div>
+      </section>
+
+      <section class="result-section">
+        <h2>Result Display Area</h2>
+        <div class="result-container">
+          <!-- Result display area will be populated dynamically -->
+        </div>
+      </section>
+    </div>
+
+    <footer>
+      <p>&copy; 2024 Speech Fumbling Detection</p>
+    </footer>
+
+    <script src="../static/check.js"></script>
+  </body>
+</html>
