@@ -16,10 +16,31 @@ document.addEventListener("DOMContentLoaded", function () {
   const predictButton = document.getElementById("predict-button");
 
   predictButton.addEventListener("click", function () {
-    // Dummy result for demonstration
-    const result = "Result: No fumbling detected";
+    const file = fileUploadInput.files[0];
+    if (!file) {
+      showResult("Kindly upload an audio file");
+      return;
+    }
 
-    showResult(result);
+    const formData = new FormData();
+    formData.append("file", file);
+
+    fetch("/predict", {
+      method: "POST",
+      body: formData,
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.error) {
+          showResult(data.error);
+        } else {
+          showResult(data.result);
+        }
+      })
+      .catch((error) => {
+        showResult("Error occurred. Please try again later.");
+        console.error("Error:", error);
+      });
   });
 
   function showResult(result) {
